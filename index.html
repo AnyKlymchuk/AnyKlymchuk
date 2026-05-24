@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anna | Data Analytics & BI Specialist</title>
+<title>Anya Klymchuk | Data Analytics & BI Specialist</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -18,668 +18,192 @@
     --muted: #6b6b85;
     --dim: #3a3a50;
   }
-
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
   html { scroll-behavior: smooth; }
+  body { background: var(--bg); color: var(--text); font-family: 'Instrument Sans', sans-serif; font-size: 16px; line-height: 1.6; overflow-x: hidden; }
+  body::before { content: ''; position: fixed; inset: 0; background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px); background-size: 60px 60px; opacity: 0.3; pointer-events: none; z-index: 0; }
 
-  body {
-    background: var(--bg);
-    color: var(--text);
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-
-  /* GRID BACKGROUND */
-  body::before {
-    content: '';
-    position: fixed;
-    inset: 0;
-    background-image:
-      linear-gradient(var(--border) 1px, transparent 1px),
-      linear-gradient(90deg, var(--border) 1px, transparent 1px);
-    background-size: 60px 60px;
-    opacity: 0.3;
-    pointer-events: none;
-    z-index: 0;
-  }
-
-  /* NAV */
-  nav {
-    position: fixed;
-    top: 0; left: 0; right: 0;
-    z-index: 100;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 40px;
-    background: rgba(10,10,15,0.85);
-    backdrop-filter: blur(12px);
-    border-bottom: 1px solid var(--border);
-  }
-
-  .nav-logo {
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    color: var(--accent);
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-  }
-
-  .nav-links {
-    display: flex;
-    gap: 32px;
-    list-style: none;
-  }
-
-  .nav-links a {
-    color: var(--muted);
-    text-decoration: none;
-    font-size: 13px;
-    font-family: 'DM Mono', monospace;
-    letter-spacing: 0.05em;
-    transition: color 0.2s;
-  }
-
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; justify-content: space-between; align-items: center; padding: 20px 40px; background: rgba(10,10,15,0.85); backdrop-filter: blur(12px); border-bottom: 1px solid var(--border); }
+  .nav-logo { font-family: 'DM Mono', monospace; font-size: 13px; color: var(--accent); letter-spacing: 0.15em; text-transform: uppercase; }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: var(--muted); text-decoration: none; font-size: 13px; font-family: 'DM Mono', monospace; letter-spacing: 0.05em; transition: color 0.2s; }
   .nav-links a:hover { color: var(--text); }
 
   /* HERO */
-  .hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    padding: 120px 40px 80px;
-    position: relative;
-    z-index: 1;
-  }
+  .hero { min-height: 100vh; display: flex; align-items: center; padding: 120px 40px 80px; position: relative; z-index: 1; }
+  .hero-inner { max-width: 1100px; margin: 0 auto; width: 100%; display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: center; }
+  .hero-tag { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 24px; display: flex; align-items: center; gap: 12px; opacity: 0; animation: fadeUp 0.6s ease forwards; }
+  .hero-tag::before { content: ''; width: 32px; height: 1px; background: var(--accent); }
+  .hero-title { font-family: 'DM Serif Display', serif; font-size: clamp(40px, 5vw, 72px); line-height: 1.05; letter-spacing: -0.02em; margin-bottom: 28px; opacity: 0; animation: fadeUp 0.6s ease 0.1s forwards; }
+  .hero-title em { font-style: italic; color: var(--accent); }
+  .hero-title .line2 { color: var(--muted); }
+  .hero-desc { font-size: 17px; color: var(--muted); line-height: 1.7; margin-bottom: 36px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; }
+  .hero-cta { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease 0.3s forwards; }
+  .btn-primary { background: var(--accent); color: #000; padding: 14px 28px; font-family: 'DM Mono', monospace; font-size: 13px; font-weight: 500; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; transition: all 0.2s; border: none; cursor: pointer; display: inline-block; }
+  .btn-primary:hover { background: #00f0c0; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,212,170,0.25); }
+  .btn-outline { background: transparent; color: var(--text); padding: 14px 28px; font-family: 'DM Mono', monospace; font-size: 13px; letter-spacing: 0.08em; text-decoration: none; text-transform: uppercase; border: 1px solid var(--dim); transition: all 0.2s; }
+  .btn-outline:hover { border-color: var(--accent); color: var(--accent); }
 
-  .hero-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    width: 100%;
-  }
+  /* HERO RIGHT — ABOUT CARD */
+  .hero-card { background: var(--card); border: 1px solid var(--border); padding: 36px; opacity: 0; animation: fadeUp 0.6s ease 0.2s forwards; position: relative; }
+  .hero-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); }
+  .hero-card-label { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 20px; }
+  .trust-badges { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .trust-badge { display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--text); }
+  .trust-badge-icon { width: 32px; height: 32px; background: rgba(0,212,170,0.1); border: 1px solid rgba(0,212,170,0.2); display: flex; align-items: center; justify-content: center; font-size: 14px; flex-shrink: 0; }
+  .divider { height: 1px; background: var(--border); margin: 20px 0; }
+  .avail-row { display: flex; align-items: center; gap: 10px; }
+  .avail-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 8px var(--accent); animation: pulse 2s infinite; }
+  .avail-text { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; text-transform: uppercase; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.4; } }
 
-  .hero-tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards;
-  }
-
-  .hero-tag::before {
-    content: '';
-    width: 32px;
-    height: 1px;
-    background: var(--accent);
-  }
-
-  .hero-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(52px, 7vw, 96px);
-    line-height: 1.0;
-    letter-spacing: -0.02em;
-    margin-bottom: 32px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease 0.1s forwards;
-  }
-
-  .hero-title em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .hero-title .line2 {
-    color: var(--muted);
-  }
-
-  .hero-desc {
-    font-size: 18px;
-    color: var(--muted);
-    max-width: 520px;
-    line-height: 1.7;
-    margin-bottom: 48px;
-    opacity: 0;
-    animation: fadeUp 0.6s ease 0.2s forwards;
-  }
-
-  .hero-cta {
-    display: flex;
-    gap: 16px;
-    flex-wrap: wrap;
-    opacity: 0;
-    animation: fadeUp 0.6s ease 0.3s forwards;
-  }
-
-  .btn-primary {
-    background: var(--accent);
-    color: #000;
-    padding: 14px 28px;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    font-weight: 500;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    text-transform: uppercase;
-    transition: all 0.2s;
-    border: none;
-    cursor: pointer;
-  }
-
-  .btn-primary:hover {
-    background: #00f0c0;
-    transform: translateY(-2px);
-    box-shadow: 0 8px 24px rgba(0,212,170,0.25);
-  }
-
-  .btn-outline {
-    background: transparent;
-    color: var(--text);
-    padding: 14px 28px;
-    font-family: 'DM Mono', monospace;
-    font-size: 13px;
-    letter-spacing: 0.08em;
-    text-decoration: none;
-    text-transform: uppercase;
-    border: 1px solid var(--dim);
-    transition: all 0.2s;
-  }
-
-  .btn-outline:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  /* STATS STRIP */
-  .stats-strip {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 40px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .stats-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-  }
-
-  .stat-item {
-    padding: 0 32px;
-    border-right: 1px solid var(--border);
-    opacity: 0;
-    animation: fadeUp 0.6s ease forwards;
-  }
-
+  /* STATS */
+  .stats-strip { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 40px; position: relative; z-index: 1; }
+  .stats-inner { max-width: 1100px; margin: 0 auto; display: grid; grid-template-columns: repeat(4, 1fr); }
+  .stat-item { padding: 0 32px; border-right: 1px solid var(--border); }
   .stat-item:first-child { padding-left: 0; }
   .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'DM Serif Display', serif; font-size: 48px; color: var(--accent); line-height: 1; margin-bottom: 6px; }
+  .stat-label { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.12em; text-transform: uppercase; }
 
-  .stat-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 48px;
-    color: var(--accent);
-    line-height: 1;
-    margin-bottom: 6px;
-  }
-
-  .stat-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-  }
+  /* MARQUEE */
+  .stack-section { background: var(--surface); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 32px 0; overflow: hidden; position: relative; z-index: 1; }
+  .marquee-track { display: flex; animation: marquee 22s linear infinite; white-space: nowrap; }
+  .marquee-item { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); padding: 0 40px; border-right: 1px solid var(--border); display: flex; align-items: center; gap: 10px; }
+  .marquee-dot { width: 4px; height: 4px; border-radius: 50%; background: var(--accent); flex-shrink: 0; }
+  @keyframes marquee { from { transform: translateX(0); } to { transform: translateX(-50%); } }
 
   /* SECTIONS */
-  section {
-    padding: 100px 40px;
-    position: relative;
-    z-index: 1;
-  }
-
-  .section-inner {
-    max-width: 1100px;
-    margin: 0 auto;
-  }
-
-  .section-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.2em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 16px;
-  }
-
-  .section-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(32px, 4vw, 52px);
-    line-height: 1.1;
-    margin-bottom: 60px;
-  }
-
+  section { padding: 100px 40px; position: relative; z-index: 1; }
+  .section-inner { max-width: 1100px; margin: 0 auto; }
+  .section-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.2em; color: var(--accent); text-transform: uppercase; margin-bottom: 16px; }
+  .section-title { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 4vw, 52px); line-height: 1.1; margin-bottom: 60px; }
   .section-title span { color: var(--muted); }
 
-  /* CASES */
-  .cases-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2px;
-  }
+  /* SERVICES */
+  .services-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; margin-bottom: 60px; }
+  .service-card { background: var(--card); border: 1px solid var(--border); padding: 32px; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+  .service-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.3s ease; }
+  .service-card:hover::before { transform: scaleX(1); }
+  .service-card:hover { border-color: var(--dim); transform: translateY(-2px); }
+  .service-icon { font-size: 28px; margin-bottom: 16px; }
+  .service-title { font-family: 'DM Serif Display', serif; font-size: 20px; margin-bottom: 12px; }
+  .service-desc { font-size: 14px; color: var(--muted); line-height: 1.7; }
 
-  .case-card {
-    background: var(--card);
-    padding: 40px;
-    border: 1px solid var(--border);
-    transition: border-color 0.2s, transform 0.2s;
-    cursor: default;
-    position: relative;
-    overflow: hidden;
-  }
+  /* WHO I WORK WITH */
+  .audience-row { display: flex; flex-wrap: wrap; gap: 12px; margin-top: -20px; margin-bottom: 60px; }
+  .audience-tag { font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.08em; padding: 10px 18px; border: 1px solid var(--border); color: var(--muted); text-transform: uppercase; transition: all 0.2s; }
+  .audience-tag:hover { border-color: var(--accent); color: var(--accent); }
 
-  .case-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-    background: var(--accent);
-    transform: scaleX(0);
-    transform-origin: left;
-    transition: transform 0.3s ease;
-  }
+  /* WHY ME */
+  .why-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+  .why-item { display: flex; align-items: flex-start; gap: 16px; padding: 24px; background: var(--card); border: 1px solid var(--border); }
+  .why-icon { font-size: 22px; flex-shrink: 0; margin-top: 2px; }
+  .why-title { font-weight: 600; font-size: 15px; margin-bottom: 4px; }
+  .why-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
-  .case-card:hover::before { transform: scaleX(1); }
-  .case-card:hover { border-color: var(--dim); transform: translateY(-2px); }
+  /* PORTFOLIO */
+  .gallery-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2px; }
+  .gallery-card { position: relative; overflow: hidden; cursor: pointer; aspect-ratio: 16/10; background: var(--card); border: 1px solid var(--border); }
+  .gallery-card img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s ease, filter 0.4s ease; filter: brightness(0.85) saturate(0.9); pointer-events: none; user-select: none; -webkit-user-drag: none; }
+  .gallery-card:hover img { transform: scale(1.04); filter: brightness(1) saturate(1.1); }
+  .gallery-overlay { position: absolute; inset: 0; background: linear-gradient(to top, rgba(0,0,0,0.85) 0%, transparent 55%); opacity: 0; transition: opacity 0.3s ease; display: flex; flex-direction: column; justify-content: flex-end; padding: 24px; }
+  .gallery-card:hover .gallery-overlay { opacity: 1; }
+  .gallery-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 6px; }
+  .gallery-title { font-family: 'DM Serif Display', serif; font-size: 18px; color: #fff; margin-bottom: 4px; }
+  .gallery-desc { font-size: 12px; color: rgba(255,255,255,0.65); line-height: 1.5; }
+  .gallery-zoom-icon { position: absolute; top: 16px; right: 16px; width: 32px; height: 32px; background: rgba(0,212,170,0.9); display: flex; align-items: center; justify-content: center; font-size: 14px; opacity: 0; transition: opacity 0.3s; }
+  .gallery-card:hover .gallery-zoom-icon { opacity: 1; }
 
-  .case-card:nth-child(2)::before,
-  .case-card:nth-child(4)::before { background: var(--accent2); }
-
-  .case-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--dim);
-    letter-spacing: 0.15em;
-    margin-bottom: 20px;
-  }
-
-  .case-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 22px;
-    margin-bottom: 12px;
-    line-height: 1.2;
-  }
-
-  .case-desc {
-    font-size: 14px;
-    color: var(--muted);
-    line-height: 1.7;
-    margin-bottom: 24px;
-  }
-
-  .case-tags {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    margin-bottom: 24px;
-  }
-
-  .tag {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    letter-spacing: 0.1em;
-    padding: 4px 10px;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--muted);
-    text-transform: uppercase;
-  }
-
-  .case-result {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding-top: 20px;
-    border-top: 1px solid var(--border);
-  }
-
-  .result-num {
-    font-family: 'DM Serif Display', serif;
-    font-size: 28px;
-    color: var(--accent);
-  }
-
-  .case-card:nth-child(even) .result-num { color: var(--accent2); }
-
-  .result-text {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.4;
-  }
+  /* MODAL */
+  .modal-backdrop { position: fixed; inset: 0; background: rgba(0,0,0,0.93); z-index: 1000; display: none; align-items: center; justify-content: center; padding: 40px; }
+  .modal-backdrop.open { display: flex; }
+  .modal-inner { position: relative; max-width: 1200px; width: 100%; }
+  .modal-img { width: 100%; height: auto; max-height: 80vh; object-fit: contain; pointer-events: none; user-select: none; -webkit-user-drag: none; }
+  .modal-close { position: absolute; top: -48px; right: 0; font-family: 'DM Mono', monospace; font-size: 12px; letter-spacing: 0.1em; color: var(--muted); cursor: pointer; text-transform: uppercase; transition: color 0.2s; background: none; border: none; }
+  .modal-close:hover { color: var(--accent); }
+  .modal-caption { margin-top: 20px; display: flex; justify-content: space-between; align-items: flex-end; }
+  .modal-title { font-family: 'DM Serif Display', serif; font-size: 24px; margin-bottom: 4px; }
+  .modal-sub { font-size: 13px; color: var(--muted); }
+  .modal-tags { display: flex; gap: 8px; flex-wrap: wrap; justify-content: flex-end; }
+  .modal-tag { font-family: 'DM Mono', monospace; font-size: 10px; letter-spacing: 0.1em; padding: 4px 10px; background: var(--surface); border: 1px solid var(--border); color: var(--muted); text-transform: uppercase; }
+  .modal-nav { position: absolute; top: 50%; transform: translateY(-50%); background: rgba(0,212,170,0.15); border: 1px solid var(--accent); color: var(--accent); font-size: 20px; width: 44px; height: 44px; display: flex; align-items: center; justify-content: center; cursor: pointer; transition: background 0.2s; user-select: none; }
+  .modal-nav:hover { background: rgba(0,212,170,0.3); }
+  .modal-prev { left: -60px; }
+  .modal-next { right: -60px; }
 
   /* SKILLS */
-  .skills-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-  }
-
-  .skill-group {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 32px;
-  }
-
-  .skill-group-title {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.15em;
-    color: var(--accent);
-    text-transform: uppercase;
-    margin-bottom: 24px;
-    padding-bottom: 16px;
-    border-bottom: 1px solid var(--border);
-  }
-
-  .skill-list {
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-  }
-
-  .skill-item {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  .skill-name {
-    font-size: 14px;
-    color: var(--text);
-  }
-
-  .skill-bar-wrap {
-    width: 120px;
-    height: 3px;
-    background: var(--border);
-    position: relative;
-    overflow: hidden;
-  }
-
-  .skill-bar {
-    height: 100%;
-    background: var(--accent);
-    transform-origin: left;
-    animation: growBar 1s ease forwards;
-    animation-play-state: paused;
-  }
-
-  .skill-bar.animate { animation-play-state: running; }
-
-  @keyframes growBar {
-    from { transform: scaleX(0); }
-    to { transform: scaleX(1); }
-  }
+  .skills-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+  .skill-group { background: var(--card); border: 1px solid var(--border); padding: 32px; }
+  .skill-group-title { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.15em; color: var(--accent); text-transform: uppercase; margin-bottom: 24px; padding-bottom: 16px; border-bottom: 1px solid var(--border); }
+  .skill-list { display: flex; flex-direction: column; gap: 14px; }
+  .skill-item { display: flex; justify-content: space-between; align-items: center; }
+  .skill-name { font-size: 14px; color: var(--text); }
+  .skill-bar-wrap { width: 120px; height: 3px; background: var(--border); overflow: hidden; }
+  .skill-bar { height: 100%; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 1s ease; }
+  .skill-bar.animate { transform: scaleX(1); }
 
   /* PROCESS */
-  .process-steps {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 0;
-    border: 1px solid var(--border);
-  }
-
-  .process-step {
-    padding: 36px 28px;
-    border-right: 1px solid var(--border);
-    position: relative;
-  }
-
+  .process-steps { display: grid; grid-template-columns: repeat(4, 1fr); border: 1px solid var(--border); }
+  .process-step { padding: 36px 28px; border-right: 1px solid var(--border); }
   .process-step:last-child { border-right: none; }
-
-  .step-num {
-    font-family: 'DM Mono', monospace;
-    font-size: 10px;
-    color: var(--dim);
-    letter-spacing: 0.2em;
-    margin-bottom: 20px;
-  }
-
-  .step-icon {
-    font-size: 28px;
-    margin-bottom: 16px;
-  }
-
-  .step-title {
-    font-family: 'DM Serif Display', serif;
-    font-size: 18px;
-    margin-bottom: 10px;
-  }
-
-  .step-desc {
-    font-size: 13px;
-    color: var(--muted);
-    line-height: 1.6;
-  }
-
-  /* STACK MARQUEE */
-  .stack-section {
-    background: var(--surface);
-    border-top: 1px solid var(--border);
-    border-bottom: 1px solid var(--border);
-    padding: 32px 0;
-    overflow: hidden;
-    position: relative;
-    z-index: 1;
-  }
-
-  .marquee-track {
-    display: flex;
-    gap: 0;
-    animation: marquee 20s linear infinite;
-    white-space: nowrap;
-  }
-
-  .marquee-item {
-    font-family: 'DM Mono', monospace;
-    font-size: 12px;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    color: var(--muted);
-    padding: 0 40px;
-    border-right: 1px solid var(--border);
-    display: flex;
-    align-items: center;
-    gap: 10px;
-  }
-
-  .marquee-dot {
-    width: 4px;
-    height: 4px;
-    border-radius: 50%;
-    background: var(--accent);
-  }
-
-  @keyframes marquee {
-    from { transform: translateX(0); }
-    to { transform: translateX(-50%); }
-  }
+  .step-num { font-family: 'DM Mono', monospace; font-size: 10px; color: var(--dim); letter-spacing: 0.2em; margin-bottom: 20px; }
+  .step-icon { font-size: 28px; margin-bottom: 16px; }
+  .step-title { font-family: 'DM Serif Display', serif; font-size: 18px; margin-bottom: 10px; }
+  .step-desc { font-size: 13px; color: var(--muted); line-height: 1.6; }
 
   /* CONTACT */
-  .contact-layout {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 60px;
-    align-items: start;
-  }
-
-  .contact-left .big-text {
-    font-family: 'DM Serif Display', serif;
-    font-size: clamp(36px, 4vw, 56px);
-    line-height: 1.1;
-    margin-bottom: 24px;
-  }
-
-  .contact-left .big-text em {
-    font-style: italic;
-    color: var(--accent);
-  }
-
-  .contact-left p {
-    color: var(--muted);
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 32px;
-  }
-
-  .contact-links {
-    display: flex;
-    flex-direction: column;
-    gap: 16px;
-  }
-
-  .contact-link {
-    display: flex;
-    align-items: center;
-    gap: 16px;
-    color: var(--text);
-    text-decoration: none;
-    padding: 16px 20px;
-    border: 1px solid var(--border);
-    transition: all 0.2s;
-    font-size: 14px;
-  }
-
-  .contact-link:hover {
-    border-color: var(--accent);
-    color: var(--accent);
-  }
-
-  .contact-link-icon {
-    font-size: 18px;
-    width: 24px;
-    text-align: center;
-  }
-
-  .contact-right {
-    background: var(--card);
-    border: 1px solid var(--border);
-    padding: 40px;
-  }
-
-  .form-group {
-    margin-bottom: 20px;
-  }
-
-  .form-label {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    letter-spacing: 0.12em;
-    color: var(--muted);
-    text-transform: uppercase;
-    display: block;
-    margin-bottom: 8px;
-  }
-
-  .form-input, .form-textarea {
-    width: 100%;
-    background: var(--surface);
-    border: 1px solid var(--border);
-    color: var(--text);
-    padding: 12px 16px;
-    font-family: 'Instrument Sans', sans-serif;
-    font-size: 14px;
-    outline: none;
-    transition: border-color 0.2s;
-    resize: vertical;
-  }
-
-  .form-input:focus, .form-textarea:focus {
-    border-color: var(--accent);
-  }
-
+  .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: start; }
+  .contact-left .big-text { font-family: 'DM Serif Display', serif; font-size: clamp(32px, 3.5vw, 48px); line-height: 1.1; margin-bottom: 24px; }
+  .contact-left .big-text em { font-style: italic; color: var(--accent); }
+  .contact-left p { color: var(--muted); font-size: 15px; line-height: 1.7; margin-bottom: 32px; }
+  .contact-links { display: flex; flex-direction: column; gap: 16px; }
+  .contact-link { display: flex; align-items: center; gap: 16px; color: var(--text); text-decoration: none; padding: 16px 20px; border: 1px solid var(--border); transition: all 0.2s; font-size: 14px; }
+  .contact-link:hover { border-color: var(--accent); color: var(--accent); }
+  .contact-link-icon { font-size: 18px; width: 24px; text-align: center; }
+  .contact-right { background: var(--card); border: 1px solid var(--border); padding: 40px; }
+  .form-group { margin-bottom: 20px; }
+  .form-label { font-family: 'DM Mono', monospace; font-size: 11px; letter-spacing: 0.12em; color: var(--muted); text-transform: uppercase; display: block; margin-bottom: 8px; }
+  .form-input, .form-textarea { width: 100%; background: var(--surface); border: 1px solid var(--border); color: var(--text); padding: 12px 16px; font-family: 'Instrument Sans', sans-serif; font-size: 14px; outline: none; transition: border-color 0.2s; resize: vertical; }
+  .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
   .form-textarea { min-height: 100px; }
 
-  /* FOOTER */
-  footer {
-    border-top: 1px solid var(--border);
-    padding: 32px 40px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: relative;
-    z-index: 1;
-  }
+  footer { border-top: 1px solid var(--border); padding: 32px 40px; display: flex; justify-content: space-between; align-items: center; position: relative; z-index: 1; }
+  .footer-copy { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--muted); letter-spacing: 0.1em; }
+  .footer-badge { font-family: 'DM Mono', monospace; font-size: 11px; color: var(--accent); letter-spacing: 0.1em; border: 1px solid var(--accent); padding: 6px 14px; }
 
-  .footer-copy {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--muted);
-    letter-spacing: 0.1em;
-  }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
 
-  .footer-badge {
-    font-family: 'DM Mono', monospace;
-    font-size: 11px;
-    color: var(--accent);
-    letter-spacing: 0.1em;
-    border: 1px solid var(--accent);
-    padding: 6px 14px;
-  }
-
-  /* ANIMATIONS */
-  @keyframes fadeUp {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-  }
-
-  .reveal {
-    opacity: 0;
-    transform: translateY(24px);
-    transition: opacity 0.6s ease, transform 0.6s ease;
-  }
-
-  .reveal.visible {
-    opacity: 1;
-    transform: none;
-  }
-
-  /* MOBILE */
-  @media (max-width: 768px) {
+  @media (max-width: 900px) {
     nav { padding: 16px 20px; }
     .nav-links { display: none; }
     .hero { padding: 100px 20px 60px; }
+    .hero-inner { grid-template-columns: 1fr; gap: 40px; }
     .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
     .stat-item { border-right: none; padding: 0; }
     section { padding: 60px 20px; }
-    .cases-grid { grid-template-columns: 1fr; }
+    .services-grid { grid-template-columns: 1fr; }
+    .gallery-grid { grid-template-columns: 1fr; }
+    .why-grid { grid-template-columns: 1fr; }
     .skills-layout { grid-template-columns: 1fr; }
     .process-steps { grid-template-columns: 1fr 1fr; }
     .contact-layout { grid-template-columns: 1fr; }
     footer { flex-direction: column; gap: 16px; text-align: center; }
+    .modal-prev { left: -16px; }
+    .modal-next { right: -16px; }
   }
 </style>
 </head>
 <body>
 
-<!-- NAV -->
 <nav>
-  <div class="nav-logo">Anna · Analytics</div>
+  <div class="nav-logo">Anya Klymchuk · BI</div>
   <ul class="nav-links">
-    <li><a href="#cases">Cases</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#portfolio">Portfolio</a></li>
     <li><a href="#skills">Skills</a></li>
-    <li><a href="#process">Process</a></li>
     <li><a href="#contact">Contact</a></li>
   </ul>
 </nav>
@@ -687,19 +211,34 @@
 <!-- HERO -->
 <section class="hero">
   <div class="hero-inner">
-    <div class="hero-tag">Data Analytics & BI Specialist</div>
-    <h1 class="hero-title">
-      Turning raw data<br>
-      into <em>decisions</em><br>
-      <span class="line2">that drive growth.</span>
-    </h1>
-    <p class="hero-desc">
-      I build Power BI dashboards, financial models, and automated pipelines
-      that help businesses stop guessing and start knowing.
-    </p>
-    <div class="hero-cta">
-      <a href="https://www.upwork.com" class="btn-primary" target="_blank">Hire on Upwork →</a>
-      <a href="#cases" class="btn-outline">See my work</a>
+    <div class="hero-left">
+      <div class="hero-tag">Power BI · SQL · Python · Financial Analytics</div>
+      <h1 class="hero-title">
+        Is your data hard<br>
+        to <em>read, trust,</em><br>
+        <span class="line2">or just unused?</span>
+      </h1>
+      <p class="hero-desc">
+        I help businesses turn raw data into clear, interactive dashboards and automated reports — so your team makes faster decisions with less manual work.
+      </p>
+      <div class="hero-cta">
+        <a href="https://www.upwork.com" class="btn-primary" target="_blank">Hire on Upwork →</a>
+        <a href="#portfolio" class="btn-outline">See my work</a>
+      </div>
+    </div>
+    <div class="hero-card">
+      <div class="hero-card-label">Why clients choose me</div>
+      <div class="trust-badges">
+        <div class="trust-badge"><div class="trust-badge-icon">🏢</div><span>4+ years as Financial / BI Analyst at ADAMA Ltd. (Syngenta Group)</span></div>
+        <div class="trust-badge"><div class="trust-badge-icon">🎓</div><span>Master's in Accounting & Data Analysis</span></div>
+        <div class="trust-badge"><div class="trust-badge-icon">⭐</div><span>Top Rated · 100% Job Success on Upwork</span></div>
+        <div class="trust-badge"><div class="trust-badge-icon">⚡</div><span>0–4 hr response · Fast delivery · Clear communication</span></div>
+      </div>
+      <div class="divider"></div>
+      <div class="avail-row">
+        <div class="avail-dot"></div>
+        <div class="avail-text">Available for new projects</div>
+      </div>
     </div>
   </div>
 </section>
@@ -707,29 +246,28 @@
 <!-- STATS -->
 <div class="stats-strip">
   <div class="stats-inner">
-    <div class="stat-item reveal" style="animation-delay:0s">
-      <div class="stat-num">50+</div>
-      <div class="stat-label">Projects Delivered</div>
-    </div>
-    <div class="stat-item reveal" style="animation-delay:0.1s">
-      <div class="stat-num">5★</div>
-      <div class="stat-label">Upwork Rating</div>
-    </div>
-    <div class="stat-item reveal" style="animation-delay:0.2s">
-      <div class="stat-num">3x</div>
-      <div class="stat-label">Avg. Report Speed Gain</div>
-    </div>
-    <div class="stat-item reveal" style="animation-delay:0.3s">
-      <div class="stat-num">8+</div>
+    <div class="stat-item reveal">
+      <div class="stat-num">4+</div>
       <div class="stat-label">Years Experience</div>
     </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">16+</div>
+      <div class="stat-label">BI Dashboards Built</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">70%</div>
+      <div class="stat-label">Avg. Manual Work Reduced</div>
+    </div>
+    <div class="stat-item reveal">
+      <div class="stat-num">100%</div>
+      <div class="stat-label">Job Success on Upwork</div>
+    </div>
   </div>
 </div>
 
-<!-- STACK MARQUEE -->
+<!-- MARQUEE -->
 <div class="stack-section">
   <div class="marquee-track">
-    <!-- duplicated for infinite scroll -->
     <div class="marquee-item"><span class="marquee-dot"></span>Power BI</div>
     <div class="marquee-item"><span class="marquee-dot"></span>DAX</div>
     <div class="marquee-item"><span class="marquee-dot"></span>SQL</div>
@@ -739,9 +277,9 @@
     <div class="marquee-item"><span class="marquee-dot"></span>Power Query</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Microsoft Fabric</div>
     <div class="marquee-item"><span class="marquee-dot"></span>SAP</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>1C</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Google Sheets</div>
     <div class="marquee-item"><span class="marquee-dot"></span>pandas</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>scikit-learn</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Power BI</div>
     <div class="marquee-item"><span class="marquee-dot"></span>DAX</div>
     <div class="marquee-item"><span class="marquee-dot"></span>SQL</div>
@@ -751,141 +289,155 @@
     <div class="marquee-item"><span class="marquee-dot"></span>Power Query</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Microsoft Fabric</div>
     <div class="marquee-item"><span class="marquee-dot"></span>SAP</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>1C</div>
     <div class="marquee-item"><span class="marquee-dot"></span>Google Sheets</div>
     <div class="marquee-item"><span class="marquee-dot"></span>pandas</div>
-    <div class="marquee-item"><span class="marquee-dot"></span>scikit-learn</div>
   </div>
 </div>
 
-<!-- CASES -->
-<section id="cases">
+<!-- ABOUT / SERVICES -->
+<section id="about">
   <div class="section-inner">
-    <div class="section-label reveal">Selected Work</div>
-    <h2 class="section-title reveal">Results that <span>speak numbers.</span></h2>
-    <div class="cases-grid">
-
-      <div class="case-card reveal">
-        <div class="case-num">01 / Financial Analytics</div>
-        <div class="case-title">Budget vs Actual Dashboard</div>
-        <div class="case-desc">Built an executive-level P&L dashboard in Power BI with automated variance analysis. Finance team eliminated 15+ hours of manual Excel reporting per month.</div>
-        <div class="case-tags">
-          <span class="tag">Power BI</span>
-          <span class="tag">DAX</span>
-          <span class="tag">Power Query</span>
-          <span class="tag">SAP Integration</span>
-        </div>
-        <div class="case-result">
-          <div class="result-num">−15h</div>
-          <div class="result-text">manual work<br>eliminated per month</div>
-        </div>
+    <div class="section-label reveal">What I Deliver</div>
+    <h2 class="section-title reveal">Solutions that make <span>your data work.</span></h2>
+    <div class="services-grid">
+      <div class="service-card reveal">
+        <div class="service-icon">📊</div>
+        <div class="service-title">Interactive Dashboards</div>
+        <div class="service-desc">Power BI, Excel & Google Sheets dashboards your team actually uses — with filters, drill-downs, and real-time data.</div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-num">02 / Sales Analytics</div>
-        <div class="case-title">KPI Tracking System</div>
-        <div class="case-desc">Designed a real-time sales performance tracker with RLS for 3 regional managers. Increased visibility into pipeline and reduced reporting lag from weekly to daily.</div>
-        <div class="case-tags">
-          <span class="tag">Power BI</span>
-          <span class="tag">RLS</span>
-          <span class="tag">SQL</span>
-          <span class="tag">Scheduled Refresh</span>
-        </div>
-        <div class="case-result">
-          <div class="result-num">7×</div>
-          <div class="result-text">faster reporting<br>weekly → daily</div>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-icon">💰</div>
+        <div class="service-title">Financial Reporting</div>
+        <div class="service-desc">P&L, Budget vs Actual, Cash Flow, KPI tracking — built for CFOs and finance teams who need clarity fast.</div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-num">03 / Data Engineering</div>
-        <div class="case-title">ETL Pipeline for Lab Data</div>
-        <div class="case-desc">Built a PostgreSQL-based ETL pipeline ingesting lab results from multiple sources. Implemented staging tables, validation rules, and incremental refresh strategy.</div>
-        <div class="case-tags">
-          <span class="tag">PostgreSQL</span>
-          <span class="tag">Python</span>
-          <span class="tag">pandas</span>
-          <span class="tag">ETL</span>
-        </div>
-        <div class="case-result">
-          <div class="result-num">99.8%</div>
-          <div class="result-text">data accuracy<br>after validation</div>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-icon">📈</div>
+        <div class="service-title">Sales, HR & Operations</div>
+        <div class="service-desc">End-to-end analytics for sales pipelines, HR attrition, and operational performance across departments.</div>
       </div>
-
-      <div class="case-card reveal">
-        <div class="case-num">04 / Forecasting</div>
-        <div class="case-title">Revenue Forecast Model</div>
-        <div class="case-desc">Developed a Python-based revenue forecasting model using statsmodels and scikit-learn. Integrated results into an interactive Excel financial model for C-level review.</div>
-        <div class="case-tags">
-          <span class="tag">Python</span>
-          <span class="tag">scikit-learn</span>
-          <span class="tag">statsmodels</span>
-          <span class="tag">Excel</span>
-        </div>
-        <div class="case-result">
-          <div class="result-num">±4%</div>
-          <div class="result-text">forecast accuracy<br>vs actuals</div>
-        </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🔧</div>
+        <div class="service-title">Data Cleaning & Reconciliation</div>
+        <div class="service-desc">SAP, SQL, Excel, 1C, Google Sheets — I connect and clean your data sources so numbers you can trust.</div>
       </div>
-
+      <div class="service-card reveal">
+        <div class="service-icon">⚙️</div>
+        <div class="service-title">Workflow Automation</div>
+        <div class="service-desc">Reduce manual reporting by up to 70% with automated pipelines, scheduled refreshes, and smart templates.</div>
+      </div>
+      <div class="service-card reveal">
+        <div class="service-icon">🎯</div>
+        <div class="service-title">Who I Work With</div>
+        <div class="service-desc" style="margin-bottom:16px">Finance teams · CFOs · Operations managers · Small & mid-size businesses · Startups</div>
+        <div style="font-size:13px; color: var(--accent); font-family:'DM Mono',monospace; letter-spacing:0.05em">"I don't just build dashboards — I make sure your data actually works for your business."</div>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- PORTFOLIO -->
+<section id="portfolio" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-label reveal">Portfolio</div>
+    <h2 class="section-title reveal">Real dashboards. <span>Real results.</span></h2>
+    <div class="gallery-grid">
+      <div class="gallery-card reveal" onclick="openModal(0)">
+        <img src="images/dash1_sales.png" alt="Sales Dashboard" draggable="false">
+        <div class="gallery-zoom-icon">⤢</div>
+        <div class="gallery-overlay">
+          <div class="gallery-tag">Sales Analytics</div>
+          <div class="gallery-title">Sales Performance Dashboard</div>
+          <div class="gallery-desc">R$72.68M revenue tracking with MoM variance & geo breakdown</div>
+        </div>
+      </div>
+      <div class="gallery-card reveal" onclick="openModal(1)">
+        <img src="images/dash2_simulator.png" alt="What-If Simulator" draggable="false">
+        <div class="gallery-zoom-icon">⤢</div>
+        <div class="gallery-overlay">
+          <div class="gallery-tag">Financial Modelling</div>
+          <div class="gallery-title">What-If Price Simulator</div>
+          <div class="gallery-desc">Interactive cost & price scenario modelling with live P&L recalculation</div>
+        </div>
+      </div>
+      <div class="gallery-card reveal" onclick="openModal(2)">
+        <img src="images/dash3_fxm.png" alt="FXM Trading" draggable="false">
+        <div class="gallery-zoom-icon">⤢</div>
+        <div class="gallery-overlay">
+          <div class="gallery-tag">Trading Analytics</div>
+          <div class="gallery-title">FXM Forex Analytics</div>
+          <div class="gallery-desc">21K+ trades — Wealth Index, Drawdown, Correlation Matrix</div>
+        </div>
+      </div>
+      <div class="gallery-card reveal" onclick="openModal(3)">
+        <img src="images/dash4_healthcare.png" alt="Healthcare" draggable="false">
+        <div class="gallery-zoom-icon">⤢</div>
+        <div class="gallery-overlay">
+          <div class="gallery-tag">Healthcare</div>
+          <div class="gallery-title">Healthcare Analysis Dashboard</div>
+          <div class="gallery-desc">Patient flow, ward utilisation & diagnosis breakdown</div>
+        </div>
+      </div>
+      <div class="gallery-card reveal" onclick="openModal(4)">
+        <img src="images/dash5_regional_sales.png" alt="Regional Sales" draggable="false">
+        <div class="gallery-zoom-icon">⤢</div>
+        <div class="gallery-overlay">
+          <div class="gallery-tag">Regional Sales</div>
+          <div class="gallery-title">Win/Loss Sales Overview</div>
+          <div class="gallery-desc">$27.81M pipeline, closing % by manager & AI-generated insights</div>
+        </div>
+      </div>
+      <div class="gallery-card reveal" onclick="openModal(5)">
+        <img src="images/dash6_hr.png" alt="HR Analytics" draggable="false">
+        <div class="gallery-zoom-icon">⤢</div>
+        <div class="gallery-overlay">
+          <div class="gallery-tag">HR Analytics</div>
+          <div class="gallery-title">HR Attrition Report</div>
+          <div class="gallery-desc">50K employees — attrition by dept, salary band & promotion history</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL -->
+<div class="modal-backdrop" id="modal" onclick="closeModal(event)">
+  <div class="modal-inner">
+    <button class="modal-close" onclick="closeModalDirect()">✕ Close</button>
+    <button class="modal-nav modal-prev" onclick="changeModal(-1)">‹</button>
+    <button class="modal-nav modal-next" onclick="changeModal(1)">›</button>
+    <img class="modal-img" id="modalImg" src="" alt="" draggable="false" oncontextmenu="return false">
+    <div class="modal-caption">
+      <div><div class="modal-title" id="modalTitle"></div><div class="modal-sub" id="modalSub"></div></div>
+      <div class="modal-tags" id="modalTags"></div>
+    </div>
+  </div>
+</div>
+
 <!-- SKILLS -->
-<section id="skills" style="background: var(--surface);">
+<section id="skills">
   <div class="section-inner">
     <div class="section-label reveal">Expertise</div>
-    <h2 class="section-title reveal">What I bring <span>to your project.</span></h2>
+    <h2 class="section-title reveal">Tools I work <span>with every day.</span></h2>
     <div class="skills-layout">
       <div class="skill-group reveal">
         <div class="skill-group-title">BI & Visualization</div>
         <div class="skill-list">
-          <div class="skill-item">
-            <span class="skill-name">Power BI / DAX</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Power Query / M</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Excel Advanced</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Google Sheets</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Microsoft Fabric</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
-          </div>
+          <div class="skill-item"><span class="skill-name">Power BI / DAX</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.95"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Power Query / M</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.90"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Excel Advanced</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.95"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Google Sheets</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.85"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Microsoft Fabric</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.80"></div></div></div>
         </div>
       </div>
       <div class="skill-group reveal">
         <div class="skill-group-title">Data & Programming</div>
         <div class="skill-list">
-          <div class="skill-item">
-            <span class="skill-name">SQL / PostgreSQL</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Python (pandas, NumPy)</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">ETL / Data Pipelines</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">Forecasting & ML</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
-          </div>
-          <div class="skill-item">
-            <span class="skill-name">SAP / 1C Integration</span>
-            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
-          </div>
+          <div class="skill-item"><span class="skill-name">SQL / PostgreSQL</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.92"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Python (pandas, NumPy)</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.85"></div></div></div>
+          <div class="skill-item"><span class="skill-name">ETL / Data Pipelines</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.82"></div></div></div>
+          <div class="skill-item"><span class="skill-name">SAP / 1C Integration</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.82"></div></div></div>
+          <div class="skill-item"><span class="skill-name">Workflow Automation</span><div class="skill-bar-wrap"><div class="skill-bar" style="--w:0.88"></div></div></div>
         </div>
       </div>
     </div>
@@ -893,7 +445,7 @@
 </section>
 
 <!-- PROCESS -->
-<section id="process">
+<section style="background: var(--surface);">
   <div class="section-inner">
     <div class="section-label reveal">How I Work</div>
     <h2 class="section-title reveal">Clear process, <span>no surprises.</span></h2>
@@ -908,13 +460,13 @@
         <div class="step-num">STEP 02</div>
         <div class="step-icon">🏗️</div>
         <div class="step-title">Design</div>
-        <div class="step-desc">Data model, schema, and dashboard wireframes agreed upfront — no surprises midway through the project.</div>
+        <div class="step-desc">Data model and dashboard structure agreed upfront — no surprises midway through the project.</div>
       </div>
       <div class="process-step">
         <div class="step-num">STEP 03</div>
         <div class="step-icon">⚙️</div>
         <div class="step-title">Build</div>
-        <div class="step-desc">I deliver in sprints with regular updates. You can review progress and provide feedback at every stage.</div>
+        <div class="step-desc">I deliver in stages with regular updates. You review progress and give feedback at every step.</div>
       </div>
       <div class="process-step">
         <div class="step-num">STEP 04</div>
@@ -927,83 +479,51 @@
 </section>
 
 <!-- CONTACT -->
-<section id="contact" style="background: var(--surface);">
+<section id="contact">
   <div class="section-inner">
     <div class="contact-layout">
       <div class="contact-left reveal">
-        <div class="big-text">Let's build something <em>valuable.</em></div>
+        <div class="big-text">Ready to make your data <em>useful?</em></div>
         <p>Have a data problem? Tell me what you need — I'll tell you how to solve it. Most projects start within 24 hours.</p>
         <div class="contact-links">
-          <a href="https://www.upwork.com" class="contact-link" target="_blank">
-            <span class="contact-link-icon">💼</span>
-            Hire me on Upwork
-          </a>
-          <a href="mailto:your@email.com" class="contact-link">
-            <span class="contact-link-icon">✉️</span>
-            your@email.com
-          </a>
-          <a href="https://linkedin.com" class="contact-link" target="_blank">
-            <span class="contact-link-icon">🔗</span>
-            LinkedIn Profile
-          </a>
+          <a href="https://www.upwork.com" class="contact-link" target="_blank"><span class="contact-link-icon">💼</span>Hire me on Upwork</a>
+          <a href="mailto:your@email.com" class="contact-link"><span class="contact-link-icon">✉️</span>your@email.com</a>
+          <a href="https://linkedin.com" class="contact-link" target="_blank"><span class="contact-link-icon">🔗</span>LinkedIn Profile</a>
         </div>
       </div>
       <div class="contact-right reveal">
-        <div class="form-group">
-          <label class="form-label">Your Name</label>
-          <input class="form-input" type="text" placeholder="John Smith">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Email</label>
-          <input class="form-input" type="email" placeholder="john@company.com">
-        </div>
-        <div class="form-group">
-          <label class="form-label">Project Brief</label>
-          <textarea class="form-textarea" placeholder="Describe your data challenge and what outcome you need…"></textarea>
-        </div>
-        <button class="btn-primary" style="width:100%" onclick="alert('Message sent! (Connect to a backend or Formspree to enable real sending)')">Send Message →</button>
+        <div class="form-group"><label class="form-label">Your Name</label><input class="form-input" type="text" placeholder="John Smith"></div>
+        <div class="form-group"><label class="form-label">Email</label><input class="form-input" type="email" placeholder="john@company.com"></div>
+        <div class="form-group"><label class="form-label">Project Brief</label><textarea class="form-textarea" placeholder="Describe your data challenge…"></textarea></div>
+        <button class="btn-primary" style="width:100%" onclick="alert('Connect Formspree or EmailJS to enable real sending!')">Send Message →</button>
       </div>
     </div>
   </div>
 </section>
 
-<!-- FOOTER -->
 <footer>
-  <div class="footer-copy">© 2026 Anna · Data Analytics Specialist</div>
+  <div class="footer-copy">© 2026 Anya Klymchuk · Data Analytics & BI Specialist</div>
   <div class="footer-badge">Available for Projects</div>
 </footer>
 
 <script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) {
-        entry.target.classList.add('visible');
-        // animate skill bars
-        entry.target.querySelectorAll('.skill-bar').forEach(bar => {
-          bar.classList.add('animate');
-        });
-      }
-    });
-  }, { threshold: 0.1 });
-
-  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-
-  // Smooth nav highlight
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-
-  window.addEventListener('scroll', () => {
-    let current = '';
-    sections.forEach(section => {
-      if (window.scrollY >= section.offsetTop - 120) {
-        current = section.getAttribute('id');
-      }
-    });
-    navLinks.forEach(link => {
-      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--text)' : '';
-    });
-  });
+const projects = [
+  { img:'images/dash1_sales.png', title:'Sales Performance Dashboard', sub:'Sales Analytics · Power BI', tags:['Power BI','DAX','Power Query','Sales'] },
+  { img:'images/dash2_simulator.png', title:'What-If Price Simulator', sub:'Financial Modelling · Power BI', tags:['Power BI','DAX','What-If Parameters','Finance'] },
+  { img:'images/dash3_fxm.png', title:'FXM Forex Analytics', sub:'Trading Analytics · Power BI', tags:['Power BI','Forex','Correlation Matrix','Risk'] },
+  { img:'images/dash4_healthcare.png', title:'Healthcare Analysis Dashboard', sub:'Healthcare · Power BI', tags:['Power BI','Healthcare','Patient Analytics'] },
+  { img:'images/dash5_regional_sales.png', title:'Win/Loss Regional Sales', sub:'Regional Sales · Power BI', tags:['Power BI','CRM Analytics','Forecast','Sales'] },
+  { img:'images/dash6_hr.png', title:'HR Attrition Report', sub:'HR Analytics · Power BI', tags:['Power BI','HR Analytics','DAX','Attrition'] }
+];
+let current = 0;
+function openModal(idx) { current=idx; renderModal(); document.getElementById('modal').classList.add('open'); document.body.style.overflow='hidden'; }
+function renderModal() { const p=projects[current]; document.getElementById('modalImg').src=p.img; document.getElementById('modalTitle').textContent=p.title; document.getElementById('modalSub').textContent=p.sub; document.getElementById('modalTags').innerHTML=p.tags.map(t=>`<span class="modal-tag">${t}</span>`).join(''); }
+function changeModal(dir) { current=(current+dir+projects.length)%projects.length; renderModal(); }
+function closeModal(e) { if(e.target===document.getElementById('modal')) closeModalDirect(); }
+function closeModalDirect() { document.getElementById('modal').classList.remove('open'); document.body.style.overflow=''; }
+document.addEventListener('keydown', e => { if(!document.getElementById('modal').classList.contains('open')) return; if(e.key==='Escape') closeModalDirect(); if(e.key==='ArrowLeft') changeModal(-1); if(e.key==='ArrowRight') changeModal(1); });
+const observer = new IntersectionObserver((entries) => { entries.forEach(entry => { if(entry.isIntersecting) { entry.target.classList.add('visible'); entry.target.querySelectorAll('.skill-bar').forEach(bar => { const w=bar.style.getPropertyValue('--w')||1; bar.style.transform=`scaleX(${w})`; bar.classList.add('animate'); }); } }); }, { threshold: 0.1 });
+document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 </script>
 </body>
 </html>
