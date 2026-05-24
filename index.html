@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna | Data Analytics & BI Specialist</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #0a0a0f;
+    --surface: #111118;
+    --card: #16161f;
+    --border: #1e1e2e;
+    --accent: #00d4aa;
+    --accent2: #ff6b35;
+    --text: #e8e8f0;
+    --muted: #6b6b85;
+    --dim: #3a3a50;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* GRID BACKGROUND */
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background-image:
+      linear-gradient(var(--border) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border) 1px, transparent 1px);
+    background-size: 60px 60px;
+    opacity: 0.3;
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+    background: rgba(10,10,15,0.85);
+    backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .nav-logo {
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    color: var(--accent);
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+  }
+
+  .nav-links {
+    display: flex;
+    gap: 32px;
+    list-style: none;
+  }
+
+  .nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'DM Mono', monospace;
+    letter-spacing: 0.05em;
+    transition: color 0.2s;
+  }
+
+  .nav-links a:hover { color: var(--text); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 40px 80px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    width: 100%;
+  }
+
+  .hero-tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .hero-tag::before {
+    content: '';
+    width: 32px;
+    height: 1px;
+    background: var(--accent);
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(52px, 7vw, 96px);
+    line-height: 1.0;
+    letter-spacing: -0.02em;
+    margin-bottom: 32px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.1s forwards;
+  }
+
+  .hero-title em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .hero-title .line2 {
+    color: var(--muted);
+  }
+
+  .hero-desc {
+    font-size: 18px;
+    color: var(--muted);
+    max-width: 520px;
+    line-height: 1.7;
+    margin-bottom: 48px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.2s forwards;
+  }
+
+  .hero-cta {
+    display: flex;
+    gap: 16px;
+    flex-wrap: wrap;
+    opacity: 0;
+    animation: fadeUp 0.6s ease 0.3s forwards;
+  }
+
+  .btn-primary {
+    background: var(--accent);
+    color: #000;
+    padding: 14px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: all 0.2s;
+    border: none;
+    cursor: pointer;
+  }
+
+  .btn-primary:hover {
+    background: #00f0c0;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba(0,212,170,0.25);
+  }
+
+  .btn-outline {
+    background: transparent;
+    color: var(--text);
+    padding: 14px 28px;
+    font-family: 'DM Mono', monospace;
+    font-size: 13px;
+    letter-spacing: 0.08em;
+    text-decoration: none;
+    text-transform: uppercase;
+    border: 1px solid var(--dim);
+    transition: all 0.2s;
+  }
+
+  .btn-outline:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  /* STATS STRIP */
+  .stats-strip {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .stats-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+  }
+
+  .stat-item {
+    padding: 0 32px;
+    border-right: 1px solid var(--border);
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards;
+  }
+
+  .stat-item:first-child { padding-left: 0; }
+  .stat-item:last-child { border-right: none; }
+
+  .stat-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 48px;
+    color: var(--accent);
+    line-height: 1;
+    margin-bottom: 6px;
+  }
+
+  .stat-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+  }
+
+  /* SECTIONS */
+  section {
+    padding: 100px 40px;
+    position: relative;
+    z-index: 1;
+  }
+
+  .section-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.2em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 16px;
+  }
+
+  .section-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 4vw, 52px);
+    line-height: 1.1;
+    margin-bottom: 60px;
+  }
+
+  .section-title span { color: var(--muted); }
+
+  /* CASES */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2px;
+  }
+
+  .case-card {
+    background: var(--card);
+    padding: 40px;
+    border: 1px solid var(--border);
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: default;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .case-card::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: var(--accent);
+    transform: scaleX(0);
+    transform-origin: left;
+    transition: transform 0.3s ease;
+  }
+
+  .case-card:hover::before { transform: scaleX(1); }
+  .case-card:hover { border-color: var(--dim); transform: translateY(-2px); }
+
+  .case-card:nth-child(2)::before,
+  .case-card:nth-child(4)::before { background: var(--accent2); }
+
+  .case-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--dim);
+    letter-spacing: 0.15em;
+    margin-bottom: 20px;
+  }
+
+  .case-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 22px;
+    margin-bottom: 12px;
+    line-height: 1.2;
+  }
+
+  .case-desc {
+    font-size: 14px;
+    color: var(--muted);
+    line-height: 1.7;
+    margin-bottom: 24px;
+  }
+
+  .case-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .tag {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    padding: 4px 10px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .case-result {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+
+  .result-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--accent);
+  }
+
+  .case-card:nth-child(even) .result-num { color: var(--accent2); }
+
+  .result-text {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.4;
+  }
+
+  /* SKILLS */
+  .skills-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+  }
+
+  .skill-group {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 32px;
+  }
+
+  .skill-group-title {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.15em;
+    color: var(--accent);
+    text-transform: uppercase;
+    margin-bottom: 24px;
+    padding-bottom: 16px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .skill-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  .skill-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .skill-name {
+    font-size: 14px;
+    color: var(--text);
+  }
+
+  .skill-bar-wrap {
+    width: 120px;
+    height: 3px;
+    background: var(--border);
+    position: relative;
+    overflow: hidden;
+  }
+
+  .skill-bar {
+    height: 100%;
+    background: var(--accent);
+    transform-origin: left;
+    animation: growBar 1s ease forwards;
+    animation-play-state: paused;
+  }
+
+  .skill-bar.animate { animation-play-state: running; }
+
+  @keyframes growBar {
+    from { transform: scaleX(0); }
+    to { transform: scaleX(1); }
+  }
+
+  /* PROCESS */
+  .process-steps {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 0;
+    border: 1px solid var(--border);
+  }
+
+  .process-step {
+    padding: 36px 28px;
+    border-right: 1px solid var(--border);
+    position: relative;
+  }
+
+  .process-step:last-child { border-right: none; }
+
+  .step-num {
+    font-family: 'DM Mono', monospace;
+    font-size: 10px;
+    color: var(--dim);
+    letter-spacing: 0.2em;
+    margin-bottom: 20px;
+  }
+
+  .step-icon {
+    font-size: 28px;
+    margin-bottom: 16px;
+  }
+
+  .step-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+
+  .step-desc {
+    font-size: 13px;
+    color: var(--muted);
+    line-height: 1.6;
+  }
+
+  /* STACK MARQUEE */
+  .stack-section {
+    background: var(--surface);
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+    padding: 32px 0;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+  }
+
+  .marquee-track {
+    display: flex;
+    gap: 0;
+    animation: marquee 20s linear infinite;
+    white-space: nowrap;
+  }
+
+  .marquee-item {
+    font-family: 'DM Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--muted);
+    padding: 0 40px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .marquee-dot {
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--accent);
+  }
+
+  @keyframes marquee {
+    from { transform: translateX(0); }
+    to { transform: translateX(-50%); }
+  }
+
+  /* CONTACT */
+  .contact-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+  }
+
+  .contact-left .big-text {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 4vw, 56px);
+    line-height: 1.1;
+    margin-bottom: 24px;
+  }
+
+  .contact-left .big-text em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .contact-left p {
+    color: var(--muted);
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 32px;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact-link {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    color: var(--text);
+    text-decoration: none;
+    padding: 16px 20px;
+    border: 1px solid var(--border);
+    transition: all 0.2s;
+    font-size: 14px;
+  }
+
+  .contact-link:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  .contact-link-icon {
+    font-size: 18px;
+    width: 24px;
+    text-align: center;
+  }
+
+  .contact-right {
+    background: var(--card);
+    border: 1px solid var(--border);
+    padding: 40px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+  }
+
+  .form-label {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--muted);
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 8px;
+  }
+
+  .form-input, .form-textarea {
+    width: 100%;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    color: var(--text);
+    padding: 12px 16px;
+    font-family: 'Instrument Sans', sans-serif;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.2s;
+    resize: vertical;
+  }
+
+  .form-input:focus, .form-textarea:focus {
+    border-color: var(--accent);
+  }
+
+  .form-textarea { min-height: 100px; }
+
+  /* FOOTER */
+  footer {
+    border-top: 1px solid var(--border);
+    padding: 32px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .footer-copy {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.1em;
+  }
+
+  .footer-badge {
+    font-family: 'DM Mono', monospace;
+    font-size: 11px;
+    color: var(--accent);
+    letter-spacing: 0.1em;
+    border: 1px solid var(--accent);
+    padding: 6px 14px;
+  }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+  }
+
+  .reveal.visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  /* MOBILE */
+  @media (max-width: 768px) {
+    nav { padding: 16px 20px; }
+    .nav-links { display: none; }
+    .hero { padding: 100px 20px 60px; }
+    .stats-inner { grid-template-columns: repeat(2, 1fr); gap: 24px; }
+    .stat-item { border-right: none; padding: 0; }
+    section { padding: 60px 20px; }
+    .cases-grid { grid-template-columns: 1fr; }
+    .skills-layout { grid-template-columns: 1fr; }
+    .process-steps { grid-template-columns: 1fr 1fr; }
+    .contact-layout { grid-template-columns: 1fr; }
+    footer { flex-direction: column; gap: 16px; text-align: center; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Anna · Analytics</div>
+  <ul class="nav-links">
+    <li><a href="#cases">Cases</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#process">Process</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="hero-tag">Data Analytics & BI Specialist</div>
+    <h1 class="hero-title">
+      Turning raw data<br>
+      into <em>decisions</em><br>
+      <span class="line2">that drive growth.</span>
+    </h1>
+    <p class="hero-desc">
+      I build Power BI dashboards, financial models, and automated pipelines
+      that help businesses stop guessing and start knowing.
+    </p>
+    <div class="hero-cta">
+      <a href="https://www.upwork.com" class="btn-primary" target="_blank">Hire on Upwork →</a>
+      <a href="#cases" class="btn-outline">See my work</a>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-strip">
+  <div class="stats-inner">
+    <div class="stat-item reveal" style="animation-delay:0s">
+      <div class="stat-num">50+</div>
+      <div class="stat-label">Projects Delivered</div>
+    </div>
+    <div class="stat-item reveal" style="animation-delay:0.1s">
+      <div class="stat-num">5★</div>
+      <div class="stat-label">Upwork Rating</div>
+    </div>
+    <div class="stat-item reveal" style="animation-delay:0.2s">
+      <div class="stat-num">3x</div>
+      <div class="stat-label">Avg. Report Speed Gain</div>
+    </div>
+    <div class="stat-item reveal" style="animation-delay:0.3s">
+      <div class="stat-num">8+</div>
+      <div class="stat-label">Years Experience</div>
+    </div>
+  </div>
+</div>
+
+<!-- STACK MARQUEE -->
+<div class="stack-section">
+  <div class="marquee-track">
+    <!-- duplicated for infinite scroll -->
+    <div class="marquee-item"><span class="marquee-dot"></span>Power BI</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>DAX</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>SQL</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>PostgreSQL</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Python</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Excel</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Power Query</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Microsoft Fabric</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>SAP</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Google Sheets</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>pandas</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>scikit-learn</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Power BI</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>DAX</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>SQL</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>PostgreSQL</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Python</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Excel</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Power Query</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Microsoft Fabric</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>SAP</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>Google Sheets</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>pandas</div>
+    <div class="marquee-item"><span class="marquee-dot"></span>scikit-learn</div>
+  </div>
+</div>
+
+<!-- CASES -->
+<section id="cases">
+  <div class="section-inner">
+    <div class="section-label reveal">Selected Work</div>
+    <h2 class="section-title reveal">Results that <span>speak numbers.</span></h2>
+    <div class="cases-grid">
+
+      <div class="case-card reveal">
+        <div class="case-num">01 / Financial Analytics</div>
+        <div class="case-title">Budget vs Actual Dashboard</div>
+        <div class="case-desc">Built an executive-level P&L dashboard in Power BI with automated variance analysis. Finance team eliminated 15+ hours of manual Excel reporting per month.</div>
+        <div class="case-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">DAX</span>
+          <span class="tag">Power Query</span>
+          <span class="tag">SAP Integration</span>
+        </div>
+        <div class="case-result">
+          <div class="result-num">−15h</div>
+          <div class="result-text">manual work<br>eliminated per month</div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-num">02 / Sales Analytics</div>
+        <div class="case-title">KPI Tracking System</div>
+        <div class="case-desc">Designed a real-time sales performance tracker with RLS for 3 regional managers. Increased visibility into pipeline and reduced reporting lag from weekly to daily.</div>
+        <div class="case-tags">
+          <span class="tag">Power BI</span>
+          <span class="tag">RLS</span>
+          <span class="tag">SQL</span>
+          <span class="tag">Scheduled Refresh</span>
+        </div>
+        <div class="case-result">
+          <div class="result-num">7×</div>
+          <div class="result-text">faster reporting<br>weekly → daily</div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-num">03 / Data Engineering</div>
+        <div class="case-title">ETL Pipeline for Lab Data</div>
+        <div class="case-desc">Built a PostgreSQL-based ETL pipeline ingesting lab results from multiple sources. Implemented staging tables, validation rules, and incremental refresh strategy.</div>
+        <div class="case-tags">
+          <span class="tag">PostgreSQL</span>
+          <span class="tag">Python</span>
+          <span class="tag">pandas</span>
+          <span class="tag">ETL</span>
+        </div>
+        <div class="case-result">
+          <div class="result-num">99.8%</div>
+          <div class="result-text">data accuracy<br>after validation</div>
+        </div>
+      </div>
+
+      <div class="case-card reveal">
+        <div class="case-num">04 / Forecasting</div>
+        <div class="case-title">Revenue Forecast Model</div>
+        <div class="case-desc">Developed a Python-based revenue forecasting model using statsmodels and scikit-learn. Integrated results into an interactive Excel financial model for C-level review.</div>
+        <div class="case-tags">
+          <span class="tag">Python</span>
+          <span class="tag">scikit-learn</span>
+          <span class="tag">statsmodels</span>
+          <span class="tag">Excel</span>
+        </div>
+        <div class="case-result">
+          <div class="result-num">±4%</div>
+          <div class="result-text">forecast accuracy<br>vs actuals</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="section-label reveal">Expertise</div>
+    <h2 class="section-title reveal">What I bring <span>to your project.</span></h2>
+    <div class="skills-layout">
+      <div class="skill-group reveal">
+        <div class="skill-group-title">BI & Visualization</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span class="skill-name">Power BI / DAX</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Power Query / M</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:90%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Excel Advanced</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:95%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Google Sheets</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Microsoft Fabric</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:80%"></div></div>
+          </div>
+        </div>
+      </div>
+      <div class="skill-group reveal">
+        <div class="skill-group-title">Data & Programming</div>
+        <div class="skill-list">
+          <div class="skill-item">
+            <span class="skill-name">SQL / PostgreSQL</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:92%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Python (pandas, NumPy)</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:88%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">ETL / Data Pipelines</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:85%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">Forecasting & ML</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:78%"></div></div>
+          </div>
+          <div class="skill-item">
+            <span class="skill-name">SAP / 1C Integration</span>
+            <div class="skill-bar-wrap"><div class="skill-bar" style="width:82%"></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROCESS -->
+<section id="process">
+  <div class="section-inner">
+    <div class="section-label reveal">How I Work</div>
+    <h2 class="section-title reveal">Clear process, <span>no surprises.</span></h2>
+    <div class="process-steps reveal">
+      <div class="process-step">
+        <div class="step-num">STEP 01</div>
+        <div class="step-icon">🔍</div>
+        <div class="step-title">Discovery</div>
+        <div class="step-desc">I ask the right questions to understand your data sources, goals, and what decisions you need to make faster.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">STEP 02</div>
+        <div class="step-icon">🏗️</div>
+        <div class="step-title">Design</div>
+        <div class="step-desc">Data model, schema, and dashboard wireframes agreed upfront — no surprises midway through the project.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">STEP 03</div>
+        <div class="step-icon">⚙️</div>
+        <div class="step-title">Build</div>
+        <div class="step-desc">I deliver in sprints with regular updates. You can review progress and provide feedback at every stage.</div>
+      </div>
+      <div class="process-step">
+        <div class="step-num">STEP 04</div>
+        <div class="step-icon">🚀</div>
+        <div class="step-title">Handoff</div>
+        <div class="step-desc">Full documentation, walkthrough session, and 7-day post-delivery support included in every project.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" style="background: var(--surface);">
+  <div class="section-inner">
+    <div class="contact-layout">
+      <div class="contact-left reveal">
+        <div class="big-text">Let's build something <em>valuable.</em></div>
+        <p>Have a data problem? Tell me what you need — I'll tell you how to solve it. Most projects start within 24 hours.</p>
+        <div class="contact-links">
+          <a href="https://www.upwork.com" class="contact-link" target="_blank">
+            <span class="contact-link-icon">💼</span>
+            Hire me on Upwork
+          </a>
+          <a href="mailto:your@email.com" class="contact-link">
+            <span class="contact-link-icon">✉️</span>
+            your@email.com
+          </a>
+          <a href="https://linkedin.com" class="contact-link" target="_blank">
+            <span class="contact-link-icon">🔗</span>
+            LinkedIn Profile
+          </a>
+        </div>
+      </div>
+      <div class="contact-right reveal">
+        <div class="form-group">
+          <label class="form-label">Your Name</label>
+          <input class="form-input" type="text" placeholder="John Smith">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Email</label>
+          <input class="form-input" type="email" placeholder="john@company.com">
+        </div>
+        <div class="form-group">
+          <label class="form-label">Project Brief</label>
+          <textarea class="form-textarea" placeholder="Describe your data challenge and what outcome you need…"></textarea>
+        </div>
+        <button class="btn-primary" style="width:100%" onclick="alert('Message sent! (Connect to a backend or Formspree to enable real sending)')">Send Message →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-copy">© 2026 Anna · Data Analytics Specialist</div>
+  <div class="footer-badge">Available for Projects</div>
+</footer>
+
+<script>
+  // Scroll reveal
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        // animate skill bars
+        entry.target.querySelectorAll('.skill-bar').forEach(bar => {
+          bar.classList.add('animate');
+        });
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+  // Smooth nav highlight
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+
+  window.addEventListener('scroll', () => {
+    let current = '';
+    sections.forEach(section => {
+      if (window.scrollY >= section.offsetTop - 120) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.style.color = link.getAttribute('href') === `#${current}` ? 'var(--text)' : '';
+    });
+  });
+</script>
+</body>
+</html>
