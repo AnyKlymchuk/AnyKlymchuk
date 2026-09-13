@@ -2,40 +2,34 @@
 
 I help businesses fix broken reports, spreadsheets, data models, and data pipelines. My focus is practical troubleshooting: understand the expected business logic, find the root cause, correct the issue, validate the result, and make the workflow easier to maintain.
 
-## What I work with
+## Portfolio structure
 
-- Microsoft Power BI, DAX, Power Query / M
-- Microsoft Excel and spreadsheet automation
-- SQL and PostgreSQL
-- Python ETL and data validation
-- Data reconciliation and quality checks
-- Refresh, connection, model, and calculation troubleshooting
+### [Power BI](Power-BI/README.md)
+Troubleshooting, DAX, Power Query, refresh, data connections, data model issues, and reporting pipeline optimization.
 
-## Upwork-ready services
+Featured projects:
+- [Power BI Troubleshooting](Power-BI/01-Troubleshooting/README.md)
+- [Power BI & ETL Pipeline Optimization](Power-BI/02-ETL-Pipeline-Optimization/README.md)
 
-### 1. Excel Formula Fix & Error Troubleshooting
-Fix broken formulas, incorrect results, references, XLOOKUP/VLOOKUP, SUMIFS, IF/IFERROR logic, reconciliation differences, and spreadsheet errors.
+### [Excel](Excel/README.md)
+Formula fixes, error troubleshooting, reconciliation, spreadsheet automation, and internal tracking systems.
 
-**Workflow:** Find issue → trace logic → fix → validate → explain.
+Featured projects:
+- [Excel Formula Fix & Error Troubleshooting](Excel/01-Formula-Fix/README.md)
+- [Excel Model Reconciliation & Automation](Excel/02-Reconciliation-Automation/README.md)
+- [Excel Booking & Capacity Tracking System](Excel/03-Booking-System/README.md)
 
-[View project details](portfolio/excel-formula-troubleshooting.md)
+### [Python](Python/README.md)
+ETL automation, PostgreSQL loading, validation, reconciliation, logging, and monitoring.
 
-### 2. Excel Model Reconciliation & Automation
-Technical review of an existing Excel model using the client's business rules. I trace dependencies, fix formula and technical errors, reconcile linked outputs, add control checks, and automate repetitive calculations.
+Featured projects:
+- [CSV to PostgreSQL ETL](Python/01-CSV-to-PostgreSQL-ETL/README.md)
+- [Data Validation & Reconciliation](Python/02-Data-Validation-Reconciliation/README.md)
+- [ETL Logging & Monitoring](Python/03-ETL-Logging-Monitoring/README.md)
 
-[View project details](portfolio/excel-model-reconciliation-automation.md)
+## Core tools
 
-### 3. Power BI Troubleshooting
-Fix DAX calculation errors, Power Query issues, refresh failures, data connection problems, relationship/model errors, missing or duplicated data, and incorrect report results.
-
-**Workflow:** Reproduce → diagnose → fix → test → document.
-
-[View project details](portfolio/power-bi-troubleshooting.md)
-
-### 4. Power BI & ETL Pipeline Optimization
-Troubleshooting and automation across Python, SQL, PostgreSQL, Power BI, validation, reconciliation, logging, and recurring data loads.
-
-[View project details](portfolio/power-bi-etl-pipeline-optimization.md)
+Microsoft Power BI · DAX · Power Query / M · Microsoft Excel · Python · pandas · SQL · PostgreSQL · ETL · Data Validation · Reconciliation
 
 ## How I work
 
